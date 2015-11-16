@@ -1,0 +1,145 @@
+<!-- Thanks to http://codepen.io/zapplebee/full/gbNbZE/ for fork code -->
+
+<head>
+    <style>
+    html, body{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background-color:#111;
+        font-size: 0;
+    }
+
+    svg{
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        position:absolute;
+    }
+
+    h1{
+        display: inline-block;
+        font-family: sans-serif;
+        position:relative;
+        color:white;
+        font-size: 36px;
+        top: 40%;
+        left: 40%;
+        opacity: 1;
+        /*transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;*/
+    }
+
+    /*h1 a{
+        color: #48b1f4;
+        text-decoration:none;
+    }*/
+
+    path {
+        stroke-linecap: square;
+        stroke: white;
+        fill: white;
+        stroke-width: 0.5px;
+    }
+    </style>
+</head>
+
+<body>
+<svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <mask id="mask"></mask>
+    <mask id="bigMask"></mask>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0a0a;stop-opacity:1"/>
+      <stop offset="20%" style="stop-color:#f1ff0a;stop-opacity:1"/>
+      <stop offset="90%" style="stop-color:#d923b9;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#050d61;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="15%" height="100%" fill="url(#gradient)" mask="url(#mask)"></rect>
+  <rect x="16" y="0" width="127" height="100%" fill="url(#gradient)" mask="url(#mask)"></rect>
+</svg>
+
+<h1></h1><h1>Enable microphone</h1>
+
+<script type="text/javascript">
+window.onload = function () {
+    "use strict";
+    var paths = document.getElementsByTagName('path');
+    var visualizer = document.getElementById('visualizer');
+    var mask = visualizer.getElementById('mask');
+    var h = document.getElementsByTagName('h1')[0];
+    var h2 = document.getElementsByTagName('h1')[1];
+    var path;
+    var bigPath;
+    var report = 0;
+
+    var soundAllowed = function (stream) {
+        //Audio stops listening in FF without // window.persistAudioStream = stream;
+        //https://bugzilla.mozilla.org/show_bug.cgi?id=965483
+        //https://support.mozilla.org/en-US/questions/984179
+        window.persistAudioStream = stream;
+        var audioContent = new AudioContext();
+        var audioStream = audioContent.createMediaStreamSource( stream );
+        var analyser = audioContent.createAnalyser();
+        audioStream.connect(analyser);
+        analyser.fftSize = 1024;
+
+        var frequencyArray = new Uint8Array(analyser.frequencyBinCount);
+        var maxDb = analyser.maxDecibels;
+
+        visualizer.setAttribute('viewBox', '0 0 143 255');
+      
+        //Through the frequencyArray has a length longer than 255, there seems to be no
+        //significant data after this point. Not worth visualizing.
+        for (var i = 0 ; i < 127; i++) {
+            path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('stroke-dasharray', '9,2');
+            mask.appendChild(path);
+        }
+        bigPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        // bigPath.setAttribute('stroke-dasharray', '9,2');
+        mask.appendChild(bigPath);
+        h.innerHTML = 0;
+        h2.innerHTML = "dB"
+
+        var doDraw = function () {
+            var top10;
+            var average;
+            requestAnimationFrame(doDraw);
+            analyser.getByteFrequencyData(frequencyArray);
+            for (var i = 0 ; i < 127; i++) {
+                paths[i].setAttribute('d', 'M '+ (i + 16) +'.5 256 l 0 -' + frequencyArray[i]);
+            }
+            frequencyArray.sort(function(a, b) {
+                return a-b;
+            });
+            // top10 = frequencyArray.slice(-10);
+            top10 = frequencyArray.slice(-128);
+            average = top10.reduce(function(a, b) { return a + b; }) / top10.length;
+            h.innerHTML = 40+Math.floor(average/10);
+            bigPath.setAttribute('d', 'M 0.5 256 l 0 -' + average + ' l 12 0' 
+                                + ' l 0 ' + average + ' l -12 0 Z');
+        }
+        doDraw();
+    }
+
+    var soundNotAllowed = function (error) {
+        h.innerHTML = "You must allow your microphone.";
+        console.log(error);
+    }
+
+    window.navigator = window.navigator || {};
+    navigator.getUserMedia =  navigator.getUserMedia       ||
+                              navigator.webkitGetUserMedia ||
+                              navigator.mozGetUserMedia    ||
+                              null;
+    navigator.getUserMedia({audio:true}, soundAllowed, soundNotAllowed);
+
+};
+</script>
+</body>
