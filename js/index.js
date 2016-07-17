@@ -20,7 +20,7 @@ $(function() {
 					candies++;
 				}
 			}
-			return Math.max(evolutions-pokemon_remaining, 0);
+			return Math.max(evolutions-pokemon, 0);
 		});
 	});
 	$('button').click( function() {  
