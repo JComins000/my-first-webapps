@@ -6,7 +6,7 @@ $(function() {
 			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
 			var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
 			candies += pokemon;
-			for (evolutions = 0; candies > evolve_rate; candies -= (evolve_rate - 1)) {
+			for (evolutions = 0; candies >= evolve_rate; candies -= (evolve_rate - 1)) {
 				evolutions++;
 			}
 			return Math.max(evolutions-pokemon, 0);
