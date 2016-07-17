@@ -56,6 +56,9 @@ $(function() {
 			while (candies < evolve_rate) {
 				console.log(candies, evolve_rate);
 				catch_pokemon();
+				if (pokemon_remaining > 1) {
+					melt();
+				}
 			}
 			evolutions++;
 
