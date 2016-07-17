@@ -8,36 +8,40 @@ $(function() {
 			var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
 			var pokemon_remaining = pokemon;
 			function catch_pokemon() {
+				console.log("cat", candies, pokemon_remaining);
 				caught_pokemon++;
 				pokemon_remaining++;
-				candies+=4;
+				candies+=3;
+			}
+			function melt() {
+				console.log("mel", candies, pokemon_remaining);
+				pokemon_remaining--;
+				candies++;
 			}
 			function evolve() {
+				console.log("evo", candies, pokemon_remaining);
 				evolutions++;
-				if (evolutions > pokemon + caught_pokemon) {
+				melt();
+				if (evolutions > pokemon + caught_pokemon || pokemon_remaining < 0) {
 					catch_pokemon();
 				}
-				pokemon_remaining--;
+
 				candies -= evolve_rate;
-				candies++; // evolve
-				candies++; // melt
+				candies++; // from evolve
 			}
 			do {
-				console.log("do" ,candies, pokemon_remaining);
+				console.log("spending candies", candies, pokemon_remaining);
 				while (candies >= evolve_rate) {
 					evolve();
-					if (pokemon_remaining < 0) {
-						catch_pokemon();
-					}
 				}
 				if (pokemon_remaining > 0) {
-					pokemon_remaining--;
-					candies++;
+					melt();
 				}
 			} while (pokemon_remaining > 0);
-			console.log("while" ,candies, pokemon_remaining);
+			console.log("determining remainder", candies, pokemon_remaining);
 			if (candies > 2) {
 				while (candies < evolve_rate + 1) {
+					console.log(candies, evolve_rate);
 					catch_pokemon();
 				}
 				evolutions++;
@@ -53,7 +57,7 @@ $(function() {
 	$('button').click( function() {  
 	    $(this).addClass('active');
 	    $('button').not(this).removeClass('active');
-	    evolve_rate = $(this).text();
+	    evolve_rate = parseInt($(this).text());
 	    $('input').trigger('input');
 	}).focus( function() {
 		$(this).click();
