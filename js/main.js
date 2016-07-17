@@ -53,13 +53,11 @@ $(function() {
 				}
 			} while (pokemon_remaining > 0);
 			console.log("determining remainder", candies, pokemon_remaining);
-			if (candies > 2) {
-				while (candies < evolve_rate + 1) {
-					console.log(candies, evolve_rate);
-					catch_pokemon();
-				}
-				evolutions++;
+			while (candies < evolve_rate) {
+				console.log(candies, evolve_rate);
+				catch_pokemon();
 			}
+			evolutions++;
 
 			var html = "<p>Catch&nbsp;<b>"
 			+ Math.max(caught_pokemon, 0)
