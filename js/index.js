@@ -12,7 +12,8 @@ $(function() {
 					evolutions++;
 					pokemon_remaining--;
 					candies -= evolve_rate;
-					candies++;
+					candies++; // evolve
+					candies++; // melt
 				}
 				if (pokemon_remaining > 0) {
 					pokemon_remaining--;
