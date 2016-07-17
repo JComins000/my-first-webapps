@@ -9,7 +9,7 @@ $(function() {
 			for (evolutions = 0; candies > evolve_rate; candies -= (evolve_rate - 1)) {
 				evolutions++;
 			}
-			return evolutions;
+			return Math.max(evolutions-pokemon, 0);
 		});
 	});
 	$('button').click( function() {  
