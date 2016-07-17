@@ -1,7 +1,19 @@
 $(function() {
 	var evolve_rate = 12;
+	var do_melt = true;
+	$('#toggle_melt').mouseup( function () {
+        $(this).html( function(i, old) {
+        	do_melt = !do_melt;
+            return old === 'Melt evolutions' ? "Don't melt evolutions" : 'Melt evolutions';
+        });
+    });
+    // $(document).keydown(function (e) {
+    //     if (e.which == toggle_dir_key && !$('#toggle_melt').is(":focus")) {
+    //         $('#toggle_melt').click();
+    //     }
+    // });
 	$('input').on('input', function (e) {
-		$('#more').text(function () {
+		$('#output').html(function () {
 			var evolutions = 0;
 			var caught_pokemon = 0;
 			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
@@ -21,7 +33,13 @@ $(function() {
 			function evolve() {
 				console.log("evo", candies, pokemon_remaining);
 				evolutions++;
-				melt();
+
+				if (do_melt) {
+					melt();
+				} else {
+					pokemon_remaining--;
+				}
+
 				if (evolutions > pokemon + caught_pokemon || pokemon_remaining < 0) {
 					catch_pokemon();
 				}
@@ -29,6 +47,7 @@ $(function() {
 				candies -= evolve_rate;
 				candies++; // from evolve
 			}
+
 			do {
 				console.log("spending candies", candies, pokemon_remaining);
 				while (candies >= evolve_rate) {
@@ -46,20 +65,24 @@ $(function() {
 				}
 				evolutions++;
 			}
-			$('#evolutions').html("for <span class='b'>"+evolutions+"</span> evolve");
-			if (evolutions != 1) {
-				$('#evolutions').append("s");
-			}
-			$('#evolutions').append("!");	
-			return Math.max(caught_pokemon, 0);
+
+			var html = "<p>Catch&nbsp;<b>"
+			+ Math.max(caught_pokemon, 0)
+			+ "</b>&nbsp;more</p><p>for <b>"
+			+ evolutions
+			+ "</b> evolve" 
+			+ ((evolutions != 1) ? "s" : "")
+			+ "!</p>";
+			return html;
 		});
 	});
-	$('button').click( function() {  
+	$('.switch').click( function() {  
 	    $(this).addClass('active');
-	    $('button').not(this).removeClass('active');
+	    $('.switch').not(this).removeClass('active');
 	    evolve_rate = parseInt($(this).text());
 	    $('input').trigger('input');
 	}).focus( function() {
 		$(this).click();
 	});
+    $('input').trigger('input');
 });
