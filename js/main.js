@@ -4,14 +4,9 @@ $(function() {
 	$('#toggle_melt').mouseup( function () {
         $(this).html( function(i, old) {
         	do_melt = !do_melt;
-            return old === 'Melt evolutions' ? "Don't melt evolutions" : 'Melt evolutions';
+            return old === 'Transfer evolutions' ? "Don't transfer evolutions" : 'Transfer evolutions';
         });
     });
-    // $(document).keydown(function (e) {
-    //     if (e.which == toggle_dir_key && !$('#toggle_melt').is(":focus")) {
-    //         $('#toggle_melt').click();
-    //     }
-    // });
 	$('input').on('input', function (e) {
 		$('#output').html(function () {
 			var evolutions = 0;

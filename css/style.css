@@ -68,9 +68,12 @@ div.root {
 }
 p {
     margin: 10px 0;
+    font-size: 35px;
 }
-.b {
+p.root {
     font-weight: bold;
+    font-size: 60px;
+    margin-bottom: 15px;
 }
 #toggle_melt {
     margin-bottom: 15px;
