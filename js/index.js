@@ -2,14 +2,21 @@ $(function() {
 	var evolve_rate = 12;
 	$('input').on('input', function (e) {
 		$('#evolutions').text(function () {
-			var evolutions;
+			var evolutions = 0;
 			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
 			var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
-			candies += pokemon;
-			console.log(candies, evolve_rate);
-			for (evolutions = 0; candies >= evolve_rate; candies -= (evolve_rate - 1)) {
-				console.log(candies, evolve_rate);
-				evolutions++;
+			var pokemon_remaining = pokemon;
+			while (pokemon_remaining > 0) {
+				while (candies >= evolve_rate && pokemon_remaining > 0) {
+					evolutions++;
+					pokemon_remaining--;
+					candies -= evolve_rate;
+					candies++;
+				}
+				if (pokemon_remaining == 0) {
+					pokemon_remaining--;
+					candies++;
+				}
 			}
 			return Math.max(evolutions-pokemon, 0);
 		});
