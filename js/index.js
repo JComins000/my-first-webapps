@@ -6,9 +6,9 @@ $(function() {
 			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
 			var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
 			var pokemon_remaining = pokemon;
-			while (candies >= evolve_rate) {
+			while (candies >= evolve_rate || pokemon_remaining > 0) {
 				console.log(pokemon_remaining)
-				while (pokemon_remaining > 0) {
+				while (candies >= evolve_rate) {
 					evolutions++;
 					pokemon_remaining--;
 					candies -= evolve_rate;
