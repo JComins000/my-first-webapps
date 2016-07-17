@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="refresh" content="0; url=http://jcomins000.github.io/audio" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+<link rel='icon' type='image/png' href='http://i.imgur.com/roCehgU.png'>
+<link rel='stylesheet' type='text/css' href='css/style.css'>
+<script src='http://code.jquery.com/jquery-3.0.0.min.js'></script>
+<script src='js/index.js'></script>
 </head>
+<body>
+	<div style="text-align:left; display:inline-block;">
+		<span class='root'>Extra Candies?</span>
+		<div class='root'>
+			<input type="number" id="candies" placeholder='0' class='number'></input>
+			<span>Candies</span>
+		</div>
+		<div class='root'>
+			<input type="number" id="pokemon" placeholder='0' class='number'></input>
+			<span>Pokemon</span>
+		</div>
+		<div class='root' style="display: flex; justify-content: space-between;">
+			<button class="active">12</button>
+			<button>50</button>
+			<button>400</button>
+		</div>
+		<span id="evolutions">0</span><span>&nbsp;Evolutions</span>
+	</div>
+</body>
+</html>
