@@ -145,11 +145,20 @@ $(function() {
 			+ (curr_candies == 1 ? "candy" : "candies")
 			+ " and <b>"
 			+ curr_pokemon
-			+ "</b>	pokemon after.</p><p>Catch&nbsp;<b>"
-			+ Math.max(caught_pokemon, 0)
-			+ "</b>&nbsp;more to evolve <b>"
-			+ evolutions
-			+ "</b> pokemon!</p>";
+			+ "</b>	pokemon after.</p>"
+
+			if (evolutions - curr_evolutions == 1) {
+				html += "<p>Catch <b>"
+				+ caught_pokemon
+				+ "</b> pokemon for your next evolution!</p>";
+			} else {
+				html += "<p>Your next <b>"
+				+ caught_pokemon
+				+" catch"
+				+ (caught_pokemon == 1 ? "" : "es")
+				+ "</b> "
+				+ " will yield evolutions!</p>";
+			}
 			return html;
 		});
 	});
