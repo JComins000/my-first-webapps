@@ -44,6 +44,7 @@ $(function() {
 		$('#output').html(function () {
 			var caught_pokemon = 0;
 			var curr_evolutions = 0;
+			var curr_transfers = 0;
 			var curr_candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
 			var curr_pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
 			var perfect = (candies == 0 && pokemon_remaining == 0);
@@ -80,16 +81,31 @@ $(function() {
 				}
 			}
 
-			// evolve anything we can
-			while (curr_pokemon > 0 && curr_candies >= evolve_rate) {
+			function melt_curr() {
+				curr_transfers++;
+				curr_pokemon--;
+				curr_candies++;
+			}
+			function evolve_curr() {
 				curr_evolutions++;
 				curr_candies -= evolve_rate;
 				candies++;
 				if (do_melt) {
-					candies++;
+					curr_candies++;
 				}
-				curr_pokemon--
+				curr_pokemon--;
 			}
+			// evolve anything we can
+			while (curr_pokemon > 0 && curr_candies >= evolve_rate) {
+				evolve_curr();
+			}
+			while (curr_pokemon > 0) {
+				melt_curr();
+				if (curr_pokemon > 0 && curr_candies >= evolve_rate) {
+					evolve_curr();
+				}
+			}
+
 			var evolutions = curr_evolutions;
 			var candies = curr_candies;
 			var pokemon_remaining = curr_pokemon;
@@ -119,11 +135,15 @@ $(function() {
 				evolutions++;
 			}
 
-			var html = "<p style='font-size:25px;'>You can evolve <b>"
+			var html = "<p style='font-size:25px;'>Transfer <b>"
+			+ curr_transfers
+			+ "</b> pokemon to evolve <b>"
 			+ curr_evolutions
 			+ "</b> pokemon! <p>You will have <b>"
 			+ curr_candies
-			+ "</b> candies and <b>"
+			+ "</b> "
+			+ (curr_candies == 1 ? "candy" : "candies")
+			+ " and <b>"
 			+ curr_pokemon
 			+ "</b>	pokemon after.</p><p>Catch&nbsp;<b>"
 			+ Math.max(caught_pokemon, 0)
