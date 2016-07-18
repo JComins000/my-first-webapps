@@ -56,7 +56,7 @@ $(function() {
 				}
 			} while (pokemon_remaining > 0);
 			console.log("determining remainder", candies, pokemon_remaining);
-			if (candies != 1 + (do_melt ? 1 : 0) || pokemon_remaining != 0) {
+			// if (candies != 1 + (do_melt ? 1 : 0) || pokemon_remaining != 0) {
 				while (candies < evolve_rate) {
 					console.log(candies, evolve_rate);
 					catch_pokemon();
@@ -65,7 +65,7 @@ $(function() {
 					}
 				}
 				evolutions++;
-			}
+			// }
 
 			var html = "<p>Catch&nbsp;<b>"
 			+ Math.max(caught_pokemon, 0)
