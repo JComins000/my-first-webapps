@@ -49,13 +49,16 @@ button {
     height: 60px;
     background-color: rgba(181, 117, 7, .6);
     border-color: rgba(0,0,0,.6);
+    font-size: 30px;
+    cursor: pointer;
 }
 .switch {
     color:rgba(0,0,0,.45);
     height: 80px;
     font-weight: bold;
+    font-size: 50px;
 }
-.switch.active {
+.switch.active, #toggle_melt {
     color:rgba(0,0,0,.9);
     background-color: rgba(148, 95, 5, .9);
     border-color: rgba(0,0,0,.6);
@@ -68,16 +71,14 @@ div.root {
 }
 p {
     margin: 10px 0;
-    font-size: 35px;
+    font-size: 25px;
 }
 p.root {
     font-weight: bold;
     font-size: 60px;
     margin-bottom: 15px;
 }
-#toggle_melt {
+button.root {
     margin-bottom: 15px;
     width: 100%;
-    display: inline;
-    font-size: 30px;
 }
