@@ -12,8 +12,8 @@ $(function() {
 			var evolutions = 0;
 			var caught_pokemon = 0;
 			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
-			var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
-			var pokemon_remaining = pokemon;
+			var pokemon_remaining = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
+			var perfect = (candies == 0 && pokemon_remaining == 0);
 			function catch_pokemon() {
 				console.log("cat", candies, pokemon_remaining);
 				caught_pokemon++;
@@ -28,18 +28,23 @@ $(function() {
 			function evolve() {
 				console.log("evo", candies, pokemon_remaining);
 				evolutions++;
-
+				perfect = false;
+				candies -= evolve_rate;
+				if (candies == 0) {
+					perfect = true;
+				}
 				if (do_melt) {
 					melt();
 				} else {
 					pokemon_remaining--;
 				}
-
 				if (evolutions > pokemon + caught_pokemon || pokemon_remaining < 0) {
 					catch_pokemon();
 				}
+				if (pokemon_remaining != 0) {
+					perfect = false;
+				} 
 
-				candies -= evolve_rate;
 				candies++; // from evolve
 			}
 
@@ -56,7 +61,7 @@ $(function() {
 				}
 			} while (pokemon_remaining > 0);
 			console.log("determining remainder", candies, pokemon_remaining);
-			// if (candies != 1 + (do_melt ? 1 : 0) || pokemon_remaining != 0) {
+			if (!(candies == 1 + (do_melt ? 1 : 0) && pokemon_remaining == 0) && !perfect) {
 				while (candies < evolve_rate) {
 					console.log(candies, evolve_rate);
 					catch_pokemon();
@@ -65,7 +70,7 @@ $(function() {
 					}
 				}
 				evolutions++;
-			// }
+			}
 
 			var html = "<p>Catch&nbsp;<b>"
 			+ Math.max(caught_pokemon, 0)
