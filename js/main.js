@@ -38,14 +38,13 @@ $(function() {
 				} else {
 					pokemon_remaining--;
 				}
+				candies++;
+				if (pokemon_remaining != 0) {
+					perfect = false;
+				}
 				if (evolutions > pokemon + caught_pokemon || pokemon_remaining < 0) {
 					catch_pokemon();
 				}
-				if (pokemon_remaining != 0) {
-					perfect = false;
-				} 
-
-				candies++; // from evolve
 			}
 
 			do {
@@ -60,8 +59,8 @@ $(function() {
 					}
 				}
 			} while (pokemon_remaining > 0);
-			console.log("determining remainder", candies, pokemon_remaining);
-			if (!(candies == 1 + (do_melt ? 1 : 0) && pokemon_remaining == 0) && !perfect) {
+			console.log("determining remainder", candies, pokemon_remaining, perfect);
+			if (!(candies == 1 + (do_melt ? 1 : 0) && pokemon_remaining == 0) || !perfect) {
 				while (candies < evolve_rate) {
 					console.log(candies, evolve_rate);
 					catch_pokemon();
