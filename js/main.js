@@ -42,7 +42,7 @@ $(function() {
 	});
 	$('input').on('input', function (e) {
 		$('#output').html(function () {
-			var caught_pokemon = 0;
+			var catches = 0;
 			var curr_evolutions = 0;
 			var curr_transfers = 0;
 			var curr_candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
@@ -50,7 +50,7 @@ $(function() {
 			var perfect = (candies == 0 && pokemon_remaining == 0);
 			function catch_pokemon() {
 				console.log("cat", candies, pokemon_remaining);
-				caught_pokemon++;
+				catches++;
 				pokemon_remaining++;
 				candies+=3;
 			}
@@ -73,7 +73,7 @@ $(function() {
 					pokemon_remaining--;
 				}
 				candies++;
-				if (evolutions > pokemon + caught_pokemon || pokemon_remaining < 0) {
+				if (evolutions > pokemon + catches || pokemon_remaining < 0) {
 					catch_pokemon();
 				}
 				if (pokemon_remaining != 0) {
@@ -89,7 +89,7 @@ $(function() {
 			function evolve_curr() {
 				curr_evolutions++;
 				curr_candies -= evolve_rate;
-				candies++;
+				curr_candies++;
 				if (do_melt) {
 					curr_candies++;
 				}
@@ -118,12 +118,10 @@ $(function() {
 			// transfer all pokemon and evolve if possible
 			while (pokemon_remaining > 0) {
 				melt();
-				if (candies >= evolve_rate) {
-					evolve();
-				}
 			}
 			console.log("determining remainder", candies, pokemon_remaining, perfect);
 			// find out how many more pokemon we need for the next checkpoint
+			var curr_catches = catches;
 			if (!perfect) {
 				while (candies < evolve_rate) {
 					console.log(candies, evolve_rate);
@@ -149,13 +147,13 @@ $(function() {
 
 			if (evolutions - curr_evolutions == 1) {
 				html += "<p>Catch <b>"
-				+ caught_pokemon
+				+ catches
 				+ "</b> pokemon for your next evolution!</p>";
 			} else {
 				html += "<p>Your next <b>"
-				+ caught_pokemon
+				+ curr_catches
 				+" catch"
-				+ (caught_pokemon == 1 ? "" : "es")
+				+ (curr_catches == 1 ? "" : "es")
 				+ "</b> "
 				+ " will yield evolutions!</p>";
 			}
