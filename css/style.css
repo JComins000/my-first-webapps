@@ -29,7 +29,9 @@ h1 {
     font-family: "Fira Sans", sans-serif;
 }
 #logo {
+    display: block;
     height: 150%;
+    margin-top: -20px;
     position: absolute;
     bottom: 0;
     left: -30px;
@@ -75,7 +77,7 @@ a:active {
     padding: 20px;
     margin: 0 auto;
     justify-content: space-between;
-}.container > button, .container > .row {
+} .container > button, .container > .row {
     margin-bottom: 20px;
 }
 .input {
@@ -102,9 +104,9 @@ a:active {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}.row button {
+} .row button {
     flex: 1;
-}.row div:not(.filler) {
+} .row div:not(.filler) {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -119,18 +121,18 @@ a:active {
 #toggle_melt {
     padding: 0;
     overflow: hidden;
-}#toggle_melt section div {
+} #toggle_melt section div {
     padding: 13px;
 }
 
 .light-tone {
     background-color: rgba(255,163,97,.3);
-}.light-tone.shadow {
+} .light-tone.shadow {
     box-shadow: 0 2px 0 0 rgba(6,116,153,.3);
 }
 .mid-tone {
     background-color: rgba(255,113,66,.5);
-}.mid-tone:hover {
+} .mid-tone:hover {
     background-color: rgba(255,113,66,.6);
 }
 .mid-tone.shadow {

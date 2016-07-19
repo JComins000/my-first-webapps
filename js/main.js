@@ -1,6 +1,6 @@
 $(function() {
 	var evolve_rate = 12;
-	var do_melt = true;
+	var do_melt = false;
 	$('#toggle_melt').mousedown( function () {
         do_melt = !do_melt;
         $('input').trigger('input');
