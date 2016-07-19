@@ -2,35 +2,63 @@
 <html>
 <head>
 <title>CandyCalc</title>
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
-<link rel='icon' type='image/png' href='http://i.imgur.com/roCehgU.png'>
+<!-- <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans:400,700' rel='stylesheet'>
+<link rel='icon' type='image/png' href='img/magikarp_candy.png'>
 <link rel='stylesheet' type='text/css' href='css/style.css'>
+<link rel='stylesheet' type='text/css' href='https://necolas.github.io/normalize.css/4.1.1/normalize.css'>
 <script src='http://code.jquery.com/jquery-3.0.0.min.js'></script>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src='js/main.js'></script>
 </head>
 <body>
-	<p class='root'>Candy Calculator</p>
-	<div style="text-align:left; display:inline-block;width:400px;">
-		<button class='root' id="toggle_melt">Transfer evolutions</button>
-		<div class='root' style="display: flex; justify-content: space-between;">
-			<button id='catch'>catch pkmn</button>
-			<button id='melt'>transfer pkmn</button>
+<div class='container'>
+    <h1><span id='title'><img src='img/magikarp_candy.png' id='logo'>Candy Calculator</span></h1>
+	<p id="description">Shows you how many pending evolutions you have in Pokémon Go</p>
+	<div class='row'>
+		<div>
+			<label>Candies</label>
+			<input type='number' id='candies' placeholder='0' class='input' autofocus></input>
 		</div>
-		<div class='root'>
-			<input type="number" id="candies" placeholder='0' class='number' autofocus></input>
-			<span>Candies</span>
-		</div>
-		<div class='root'>
-			<input type="number" id="pokemon" placeholder='0' class='number'></input>
-			<span>Pokemon</span>
-		</div>
-		<div class='root' style="display: flex; justify-content: space-between;">
-			<button class="switch active">12</button>
-			<button class="switch">25</button>
-			<button class="switch">50</button>
-			<button class="switch">400</button>
+		<div class='filler'></div>
+		<div>
+			<label>Pokemon</label>
+			<input type='number' id='pokemon' placeholder='0' class='input'></input>
 		</div>
 	</div>
-	<div id="output"></div>
+	<span>Buttons to update the calculator</span>
+	<div class='row' style='font-size:16px;'>
+		<button class='btn' id='catch'>Caught 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
+		<div class='filler'></div>
+		<button class='btn' id='melt'>Transferred 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
+		<div class='filler'></div>
+		<button class='btn' id='reset'>Reset</button>
+	</div>
+	<span>Number of candies needed to evolve</span>
+	<div class='row'>
+		<button class='btn switch active'>12</button>
+		<div class='filler'></div>
+		<button class='btn switch'>25</button>
+		<div class='filler'></div>
+		<button class='btn switch'>50</button>
+		<div class='filler'></div>
+		<button class='btn switch'>400</button>
+	</div>
+	<span>Toggle transferring evolutions</span>
+	<button class='btn' id='toggle_melt'>
+		<section class="row">
+		  <div class='dark' value='1'>
+		    Transfer evolutions
+		  </div>
+		  <div class=''>
+		    Don't transfer
+		  </div>
+		</section>
+	</button>
+	<div id='output'></div>
+	<div id='final'>
+		<p>Style heavily inspired by <a href="http://www.pidgeycalc.com/">PidgeyCalc</a></p>
+	</div>
+</div>
 </body>
 </html>

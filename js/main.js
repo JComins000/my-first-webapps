@@ -1,12 +1,10 @@
 $(function() {
 	var evolve_rate = 12;
 	var do_melt = true;
-	$('#toggle_melt').mouseup( function () {
-        $(this).html( function(i, old) {
-        	do_melt = !do_melt;
-            return old === 'Transfer evolutions' ? "Don't transfer evolutions" : 'Transfer evolutions';
-        });
+	$('#toggle_melt').mousedown( function () {
+        do_melt = !do_melt;
         $('input').trigger('input');
+        $(this).children().first().children().toggleClass('dark')
     });
     $('.switch').click( function() {  
 	    $(this).addClass('active');
@@ -38,6 +36,11 @@ $(function() {
 				return --pokemon ? pokemon : '';
 			});
 		}
+		$('input').trigger('input');
+	});
+	$('#reset').click( function() {
+		$('#candies').val('');
+		$('#pokemon').val('');
 		$('input').trigger('input');
 	});
 	$('input').on('input', function (e) {
@@ -133,9 +136,9 @@ $(function() {
 				evolutions++;
 			}
 
-			var html = "<p style='font-size:25px;'>Transfer <b>"
+			var html = "<p>You can transfer <b>"
 			+ curr_transfers
-			+ "</b> pokemon to evolve <b>"
+			+ "</b> pokemon, and evolve <b>"
 			+ curr_evolutions
 			+ "</b> pokemon! <p>You will have <b>"
 			+ curr_candies
