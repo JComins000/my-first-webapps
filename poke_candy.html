@@ -14,44 +14,44 @@
 <body>
 <div class='container'>
     <h1><span id='title'><img src='img/magikarp_candy.png' id='logo'>Candy Calculator</span></h1>
-	<p id="description">Shows you how many pending evolutions you have in Pokémon Go</p>
+	<p id="description">Shows you how many pending evolutions you have in Pokémon Go.</p>
 	<div class='row'>
 		<div>
 			<label>Candies</label>
-			<input type='number' id='candies' placeholder='0' class='input' autofocus></input>
+			<input type='number' id='candies' placeholder='0' class='input light-tone shadow' autofocus></input>
 		</div>
 		<div class='filler'></div>
 		<div>
-			<label>Pokemon</label>
-			<input type='number' id='pokemon' placeholder='0' class='input'></input>
+			<label>Pokémon</label>
+			<input type='number' id='pokemon' placeholder='0' class='input light-tone shadow'></input>
 		</div>
 	</div>
 	<span>Buttons to update the calculator</span>
 	<div class='row' style='font-size:16px;'>
-		<button class='btn' id='catch'>Caught 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
+		<button class='btn mid-tone shadow' id='catch'>Caught 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
 		<div class='filler'></div>
-		<button class='btn' id='melt'>Transferred 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
+		<button class='btn mid-tone shadow' id='melt'>Transferred 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
 		<div class='filler'></div>
-		<button class='btn' id='reset'>Reset</button>
+		<button class='btn mid-tone shadow' id='reset'>Reset</button>
 	</div>
 	<span>Number of candies needed to evolve</span>
 	<div class='row'>
-		<button class='btn switch active'>12</button>
+		<button class='btn mid-tone shadow switch active'>12</button>
 		<div class='filler'></div>
-		<button class='btn switch'>25</button>
+		<button class='btn mid-tone shadow switch'>25</button>
 		<div class='filler'></div>
-		<button class='btn switch'>50</button>
+		<button class='btn mid-tone shadow switch'>50</button>
 		<div class='filler'></div>
-		<button class='btn switch'>400</button>
+		<button class='btn mid-tone shadow switch'>400</button>
 	</div>
 	<span>Toggle transferring evolutions</span>
-	<button class='btn' id='toggle_melt'>
+	<button class='btn mid-tone shadow' id='toggle_melt'>
 		<section class="row">
-		  <div class='dark' value='1'>
-		    Transfer evolutions
+		  <div class='dark-tone' value='1'>
+		    <span>Transfer evolutions</span>
 		  </div>
 		  <div class=''>
-		    Don't transfer
+		    <span>Don't transfer <span style='font-size:12px;font-weight:normal'>This can save time</span></span>
 		  </div>
 		</section>
 	</button>

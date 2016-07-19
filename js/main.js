@@ -4,7 +4,7 @@ $(function() {
 	$('#toggle_melt').mousedown( function () {
         do_melt = !do_melt;
         $('input').trigger('input');
-        $(this).children().first().children().toggleClass('dark')
+        $(this).children().first().children().toggleClass('dark-tone')
     });
     $('.switch').click( function() {  
 	    $(this).addClass('active');
@@ -138,20 +138,20 @@ $(function() {
 
 			var html = "<p>You can transfer <b>"
 			+ curr_transfers
-			+ "</b> pokemon, and evolve <b>"
+			+ "</b>, and evolve <b>"
 			+ curr_evolutions
-			+ "</b> pokemon! <p>You will have <b>"
+			+ "</b> pokémon! <p>You will have <b>"
 			+ curr_candies
 			+ "</b> "
 			+ (curr_candies == 1 ? "candy" : "candies")
 			+ " and <b>"
 			+ curr_pokemon
-			+ "</b>	pokemon after.</p>"
+			+ "</b>	pokémon.</p>"
 
 			if (evolutions - curr_evolutions == 1) {
 				html += "<p>Catch <b>"
 				+ catches
-				+ "</b> pokemon for your next evolution!</p>";
+				+ "</b> pokémon for your next evolution!</p>";
 			} else {
 				html += "<p>Your next <b>"
 				+ curr_catches
