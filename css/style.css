@@ -13,6 +13,7 @@ input::-webkit-input-placeholder {
 }
 body{
     /*font-family: 'Roboto', sans-serif;*/
+    background-color: #fffbf0;
     color:rgba(0,0,0,.9);
     font-size: 20px;
 }
