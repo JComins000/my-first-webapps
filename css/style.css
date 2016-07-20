@@ -85,7 +85,7 @@ a:active {
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-  opacity: 0.125;
+  opacity: 0.12;
   top: 0;
   left: 0;
   bottom: 0;
@@ -107,10 +107,6 @@ a:active {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-}
-.shadow.btn:active, .shadow.switch.active {
-    box-shadow: none;
-    transform: translateY(3px);
 }
 
 .row {
@@ -141,7 +137,8 @@ a:active {
 .light-tone {
     background-color: rgb(239, 248, 181);
 } .light-tone.shadow {
-    box-shadow: 0 2px 0 0 rgb(178, 206, 207);
+    /*box-shadow: 0 2px 0 0 rgb(178, 206, 207);*/
+    box-shadow: 0 3px 0 0 rgb(240, 126, 100);
 }
 .mid-tone {
     background-color: rgb(254, 179, 148);
@@ -149,8 +146,13 @@ a:active {
     background-color: rgb(254, 166, 132);
 }
 .mid-tone.shadow {
-    box-shadow: 0 3px 0 0 rgb(129, 181, 192);
+    /*box-shadow: 0 3px 0 0 rgb(129, 181, 192);*/
+    box-shadow: 0 3px 0 0 rgb(220, 84, 75);
 }
-.dark-tone, .switch.active {
+.dark-tone, .switch.active, .btn:active {
     background-color: rgb(255,113,66);
+}
+.shadow.btn:active, .shadow.switch.active {
+    box-shadow: none;
+    transform: translateY(3px);
 }
