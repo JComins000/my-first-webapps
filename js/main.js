@@ -41,5 +41,4 @@ $(function() {
 		$('#pokemon').val('');
 		$('input').trigger('input');
 	});
-    $('input').trigger('input');
 });

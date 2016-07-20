@@ -119,4 +119,5 @@ $(function() {
 			return html;
 		});
 	});
+	$('input').trigger('input');
 });
