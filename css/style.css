@@ -29,7 +29,6 @@ body{
 #logo {
     display: block;
     height: 150%;
-    margin-top: -20px;
     position: absolute;
     bottom: 0;
     right: 100%;

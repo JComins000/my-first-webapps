@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CandyCalc</title>
-<!-- <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+<title>Candy Cruncher</title>
+<!-- CRUNCH! I'll add it to the heap! -->
 <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans:400,700' rel='stylesheet'>
 <link rel='icon' type='image/png' href='img/magikarp_candy.png'>
 <link rel='stylesheet' type='text/css' href='css/style.css'>
 <link rel='stylesheet' type='text/css' href='https://necolas.github.io/normalize.css/4.1.1/normalize.css'>
 <script src='http://code.jquery.com/jquery-3.0.0.min.js'></script>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+	var evolve_rate = 12;
+	var do_melt = false;
+</script>
 <script src='js/main.js'></script>
+<script src='js/crunch.js'></script>
 </head>
 <body>
 <div class='container'>
-    <h1><span id='title'><img src='img/magikarp_candy.png' id='logo'>Candy Calculator</span></h1>
+    <h1><span id='title'><img src='img/magikarp_candy.png' id='logo'>Candy Cruncher</span></h1>
 	<p id="description">Shows you how many pending evolutions you have in Pokémon Go.</p>
 	<div class='row'>
 		<div>
