@@ -2,90 +2,77 @@ $(function() {
 	$('input').on('input', function (e) {
 		$('#output').html(function () {
 			var catches = 0;
-			var curr_evolutions = 0;
+			var evolutions = 0;
 			var curr_transfers = 0;
-			var curr_candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
-			var curr_pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
-			var perfect = (candies == 0 && pokemon_remaining == 0);
+			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
+			var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
+			var perfect = (candies == 0 && pokemon == 0);
 			function catch_pokemon() {
-				console.log("cat", candies, pokemon_remaining);
+				console.log("cat", candies, pokemon);
 				catches++;
-				pokemon_remaining++;
+				pokemon++;
 				candies+=3;
 			}
 			function melt() {
-				console.log("mel", candies, pokemon_remaining);
-				pokemon_remaining--;
+				console.log("mel", candies, pokemon);
+				pokemon--;
 				candies++;
 			}
-			function evolve() {
-				console.log("evo", candies, pokemon_remaining);
+			function evolve(do_catch = true) {
+				console.log("evo", candies, pokemon);
 				evolutions++;
 				perfect = false;
 				candies -= evolve_rate;
 				if (candies == 0) {
 					perfect = true;
 				}
+				pokemon--;
 				if (do_melt) {
-					melt();
-				} else {
-					pokemon_remaining--;
+					candies++;
 				}
 				candies++;
-				if (evolutions > pokemon + catches || pokemon_remaining < 0) {
-					catch_pokemon();
+				if (do_catch) {
+					if (evolutions > pokemon + catches || pokemon < 0) {
+						catch_pokemon();
+					}
 				}
-				if (pokemon_remaining != 0) {
+				if (pokemon != 0) {
 					perfect = false;
 				}
 			}
-
-			function melt_curr() {
-				curr_transfers++;
-				curr_pokemon--;
-				curr_candies++;
-			}
-			function evolve_curr() {
-				curr_evolutions++;
-				curr_candies -= evolve_rate;
-				curr_candies++;
-				if (do_melt) {
-					curr_candies++;
-				}
-				curr_pokemon--;
-			}
 			// evolve anything we can
-			while (curr_pokemon > 0 && curr_candies >= evolve_rate) {
-				evolve_curr();
+			while (pokemon > 0 && candies >= evolve_rate) {
+				evolve(false);
 			}
-			while (curr_pokemon > 0) {
-				melt_curr();
-				if (curr_pokemon > 0 && curr_candies >= evolve_rate) {
-					evolve_curr();
+			while (pokemon > 0) {
+				melt();
+				curr_transfers++;
+				if (pokemon > 0 && candies >= evolve_rate) {
+					evolve(false);
 				}
 			}
 
-			var evolutions = curr_evolutions;
-			var candies = curr_candies;
-			var pokemon_remaining = curr_pokemon;
+			var curr_evolutions = evolutions;
+			var curr_candies = candies;
+			var curr_pokemon = pokemon;
 
-			console.log("spending candies", candies, pokemon_remaining);
+			console.log("spending candies", candies, pokemon);
 			// first spend the candies, catch pokemon if needed
 			while (candies >= evolve_rate) {
 				evolve();
 			}
 			// transfer all pokemon and evolve if possible
-			while (pokemon_remaining > 0) {
+			while (pokemon > 0) {
 				melt();
 			}
-			console.log("determining remainder", candies, pokemon_remaining, perfect);
+			console.log("determining remainder", candies, pokemon, perfect);
 			// find out how many more pokemon we need for the next checkpoint
 			var curr_catches = catches;
 			if (!perfect) {
 				while (candies < evolve_rate) {
 					console.log(candies, evolve_rate);
 					catch_pokemon();
-					if (pokemon_remaining > 1) {
+					if (pokemon > 1) {
 						melt();
 					}
 				}

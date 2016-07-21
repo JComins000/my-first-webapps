@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Candy Cruncher</title>
+<title>Eggsplainer</title>
 <!-- CRUNCH! I'll add it to the heap! -->
 <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700|Open+Sans:400,700' rel='stylesheet'>
 <link rel='icon' type='image/png' href='img/magikarp_candy.png'>
@@ -17,15 +17,15 @@
 </head>
 <body>
 <div class='container'>
-    <h1><span id='title'><img src='img/magikarp_candy.png' id='logo'>Candy Cruncher</span></h1>
+    <h1><span id='title'><img src='img/magikarp_candy.png' id='logo'>Eggsplainer<img src='img/magikarp_candy.png' id='logo2'></span></h1>
 	<p id="description">One trick in Pokémon Go is to evolve many pokémon at once for a burst in experience. This website helps you decide if you're ready to use a lucky egg.</p>
 	<div class='row'>
-		<div>
+		<div class='row-elem'>
 			<label>Candies</label>
 			<input type='number' id='candies' placeholder='0' class='input light-tone shadow' autofocus></input>
 		</div>
 		<div class='filler'></div>
-		<div>
+		<div class='row-elem'>
 			<label>Pokémon</label>
 			<input type='number' id='pokemon' placeholder='0' class='input light-tone shadow'></input>
 		</div>
@@ -46,7 +46,7 @@
 		<div class='filler'></div>
 		<button class='btn mid-tone shadow switch'>50</button>
 		<div class='filler'></div>
-		<button class='btn mid-tone shadow switch'>400</button>
+		<button class='btn mid-tone shadow switch'>400<span style='font-size:12px;font-weight:normal;'> jk</span></button>
 	</div>
 	<span>Toggle transferring evolutions</span>
 	<button class='btn mid-tone shadow' id='toggle_melt'>
@@ -61,6 +61,7 @@
 	</button>
 	<div id='output'></div>
 	<div id='final'>
+		<p>Created by <a href="https://github.com/JComins000">JComins000</a>.</p>
 		<p>Style heavily inspired by <a href="http://www.pidgeycalc.com/">PidgeyCalc</a></p>
 	</div>
 </div>
