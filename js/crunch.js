@@ -52,7 +52,6 @@ $(function() {
 				}
 			}
 
-			var curr_evolutions = evolutions;
 			var curr_candies = candies;
 			var curr_pokemon = pokemon;
 
@@ -76,13 +75,12 @@ $(function() {
 						melt();
 					}
 				}
-				evolutions++;
 			}
 
 			var html = "<p>You can transfer <b>"
 			+ curr_transfers
 			+ "</b>, and evolve <b>"
-			+ curr_evolutions
+			+ evolutions
 			+ "</b> pokémon! <p>You will have <b>"
 			+ curr_candies
 			+ "</b> "
@@ -91,7 +89,7 @@ $(function() {
 			+ curr_pokemon
 			+ "</b>	pokémon.</p>"
 
-			if (evolutions - curr_evolutions == 1) {
+			if (!perfect || curr_catches == 1) {
 				html += "<p>Catch <b>"
 				+ catches
 				+ "</b> pokémon for your next evolution!</p>";

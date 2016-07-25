@@ -27,6 +27,10 @@ body{
     padding: 0 10px 0;
     font-family: "Fira Sans", sans-serif;
 }
+#egg {
+    text-transform: uppercase;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+}
 #logo {
     height: 85%;
     position: absolute;
