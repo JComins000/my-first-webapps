@@ -25,11 +25,11 @@ body{
 #title {
     position: relative;
     padding: 0 10px 0;
-    font-family: "Fira Sans", sans-serif;
+    font-family: "Fira Sans";
 }
-#egg {
+#title span {
     text-transform: uppercase;
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+    font-family: "Roboto Black", sans-serif;
 }
 #logo {
     height: 85%;
@@ -84,12 +84,12 @@ a:active {
     margin-bottom: 20px;
 } .container::after{
   content: "";
-  background: url(../img/karp.png) no-repeat center center fixed;
+  background: url(../img/pidgey.png) no-repeat center center fixed;
           -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
-  opacity: 0.12;
+  opacity: 0.15;
   top: 0;
   left: 0;
   bottom: 0;

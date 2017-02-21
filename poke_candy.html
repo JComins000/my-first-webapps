@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>EGGsplainer</title>
+<title>Pidgey Journal</title>
 <!-- CRUNCH! I'll add it to the heap! -->
 <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet'>
-<link rel='icon' type='image/png' href='img/magikarp_candy.png'>
-<link rel='stylesheet' type='text/css' href='css/style.css'>
+<link rel='icon' type='image/png' href='img/pidgey_candy.png'>
+<link rel='stylesheet' type='text/css' href='css/journal.css'>
 <link rel='stylesheet' type='text/css' href='https://necolas.github.io/normalize.css/4.1.1/normalize.css'>
 <script src='http://code.jquery.com/jquery-3.0.0.min.js'></script>
-<script>
-	var do_melt = false;
-	var evolve_rate = 12;
-</script>
 <script src='js/main.js'></script>
 <script src='js/crunch.js'></script>
 </head>
 <body>
 <div class='container'>
-    <h1><span id='title'><img src='img/magikarp_candy.png' id='logo'><span id='egg'>Egg</span>splainer<img src='img/magikarp_candy.png' id='logo2'></span></h1>
-	<p id="description">One trick in Pokémon Go is to evolve many pokémon at once for a burst in experience. This website helps you decide if you're ready to use a lucky egg.</p>
+    <h1><span id='title'><img src='img/pidgey_candy.png' id='logo'><span>Pidgey</span> Journal<img src='img/pidgey_candy.png' id='logo2'></span></h1>
+	<p id="description">Use this tool to keep a running tally of your pidgey candy in Pokémon Go. Update as you're on the GO, and Pidgey Journal will automatically show Pidgey-related stats.</p>
 	<div class='row'>
 		<div class='row-elem'>
 			<label>Candies</label>
@@ -30,7 +26,7 @@
 			<input type='number' id='pokemon' placeholder='0' class='input light-tone shadow'></input>
 		</div>
 	</div>
-	<span>Buttons to update the calculator</span>
+	<span>Journal Buttons</span>
 	<div class='row' style='font-size:16px;'>
 		<button class='btn mid-tone shadow' id='catch'>Caught 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
 		<div class='filler'></div>
@@ -38,7 +34,7 @@
 		<div class='filler'></div>
 		<button class='btn mid-tone shadow' id='reset'>Reset</button>
 	</div>
-	<span>Number of candies needed to evolve</span>
+	<!-- <span>Number of candies needed to evolve</span>
 	<div class='row'>
 		<button class='btn mid-tone shadow switch active'>12</button>
 		<div class='filler'></div>
@@ -47,8 +43,8 @@
 		<button class='btn mid-tone shadow switch'>50</button>
 		<div class='filler'></div>
 		<button class='btn mid-tone shadow switch'>400<span style='font-size:12px;font-weight:normal;'> jk</span></button>
-	</div>
-	<span>Toggle transferring evolutions</span>
+	</div> -->
+	<!-- <span>Toggle transferring evolutions</span>
 	<button class='btn mid-tone shadow' id='toggle_melt'>
 		<section class="row">
 		  <div class='' value='1'>
@@ -58,11 +54,10 @@
 		    <span>Don't transfer <span style='font-size:12px;font-weight:normal'>This can save time</span></span>
 		  </div>
 		</section>
-	</button>
+	</button> -->
 	<div id='output'></div>
 	<div id='final'>
 		<p>Created by <a href="https://github.com/JComins000">JComins000</a>.</p>
-		<p>Style heavily inspired by <a href="http://www.pidgeycalc.com/">PidgeyCalc</a></p>
 	</div>
 </div>
 </body>
