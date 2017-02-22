@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pidgey Journal</title>
+<!-- CRUNCH! I'll add it to the heap! -->
+<link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet'>
+<link rel='icon' type='image/png' href='img/pidgey_candy.png'>
+<link rel='stylesheet' type='text/css' href='css/journal.css'>
+<link rel='stylesheet' type='text/css' href='https://necolas.github.io/normalize.css/4.1.1/normalize.css'>
+<script src='http://code.jquery.com/jquery-3.0.0.min.js'></script>
+<script src='js/main.js'></script>
+<script src='js/crunch.js'></script>
+</head>
+<body>
+<div id='container'>
+	<div id='content'>
+	    <h1><span id='title'><img src='img/pidgey_candy.png' id='logo'><span>Pidgey</span> Journal<img src='img/pidgey_candy.png' id='logo2'></span></h1>
+		<p id="description">Use this tool to keep a running tally of your pidgey candy in Pokémon Go. Update as you're on the GO, and Pidgey Journal will automatically show Pidgey-related stats.</p>
+		<div class='row'>
+			<div class='row-elem'>
+				<label>Candy</label>
+				<input type='number' id='candies' placeholder='0' class='input light-tone shadow' autofocus></input>
+			</div>
+			<div class='filler'></div>
+			<div class='row-elem'>
+				<label>Pidgey</label>
+				<input type='number' id='pokemon' placeholder='0' class='input light-tone shadow'></input>
+			</div>
+		</div>
+		<span>Journal Buttons</span>
+		<div class='row' style='font-size:16px;'>
+			<button class='btn mid-tone shadow' id='catch'>Caught 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
+			<div class='filler'></div>
+			<button class='btn mid-tone shadow' id='melt'>Transferred 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
+			<div class='filler'></div>
+			<button class='btn mid-tone shadow' id='reset'>Reset</button>
+		</div>
+		<!-- <span>Number of candies needed to evolve</span>
+		<div class='row'>
+			<button class='btn mid-tone shadow switch active'>12</button>
+			<div class='filler'></div>
+			<button class='btn mid-tone shadow switch'>25</button>
+			<div class='filler'></div>
+			<button class='btn mid-tone shadow switch'>50</button>
+			<div class='filler'></div>
+			<button class='btn mid-tone shadow switch'>400<span style='font-size:12px;font-weight:normal;'> jk</span></button>
+		</div> -->
+		<!-- <span>Toggle transferring evolutions</span>
+		<button class='btn mid-tone shadow' id='toggle_melt'>
+			<section class="row">
+			  <div class='' value='1'>
+			    <span>Transfer evolutions</span>
+			  </div>
+			  <div class='dark-tone'>
+			    <span>Don't transfer <span style='font-size:12px;font-weight:normal'>This can save time</span></span>
+			  </div>
+			</section>
+		</button> -->
+		<div id='output'></div>
+	</div>
+	<div id='footer'>
+		<p>Created by <a href="https://github.com/JComins000">JComins000</a>.</p>
+	</div>
+</div>
+</body>
+</html>

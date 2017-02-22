@@ -1,62 +1,16 @@
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input::-webkit-input-placeholder {
-   opacity: .5;
-}
 * {
     font-family: "Open Sans", sans-serif;
 }*:focus {
     outline:none;
+}
+html,body{
+    height:100%;
 }
 body{
     /*font-family: 'Roboto', sans-serif;*/
     background-color: #fffbf0;
     color:rgba(0,0,0,.9);
     font-size: 20px;
-}
-.container h1 {
-    margin-top: 0;
-    text-align: center;
-    position: relative;
-}
-#title {
-    position: relative;
-    padding: 0 10px 0;
-    font-family: "Fira Sans";
-}
-#title span {
-    text-transform: uppercase;
-    font-family: "Roboto Black", sans-serif;
-}
-#logo {
-    height: 85%;
-    position: absolute;
-    bottom: 15%;
-    right: 100%;
-}#logo2 {
-    height: 85%;
-    position: absolute;
-    bottom: 15%;
-    left: 100%;
-}
-#description {
-    margin-top: -15px;
-    margin-bottom: 20px;
-    font-size: 16px;
-}
-#output {
-    font-size: 20px;
-    line-height: 1.6;
-}
-#final {
-    font-size: 16px;
-    margin-top: 50px;
-}
-#reset {
-    flex-grow: .56666;
 }
 p {
     text-align: center;
@@ -71,18 +25,22 @@ a:active {
     text-decoration: none;
     color: rgb(255,113,66);
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input::-webkit-input-placeholder {
+   opacity: .5;
+}
 
-.container {
-    display: flex;
-    flex-direction: column;
+#container {
     max-width: 600px;
-    padding: 20px;
     margin: 0 auto;
     justify-content: space-between;
-    z-index: 1
-} .container > button, .container > .row {
-    margin-bottom: 20px;
-} .container::after{
+    z-index: 1;
+    min-height: 100%;
+} #container::after{
   content: "";
   background: url(../img/pidgey.png) no-repeat center center fixed;
           -webkit-background-size: cover;
@@ -97,6 +55,58 @@ a:active {
   position: absolute;
   z-index: -1;  
 }
+#content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 0px;
+}
+#content h1 {
+    margin-top: 0;
+    text-align: center;
+    position: relative;
+}
+#title {
+    position: relative;
+    padding: 0 10px 0;
+    font-family: "Fira Sans";
+}
+#title span {
+    text-transform: uppercase;
+    font-family: "Roboto Black", sans-serif;
+}
+#logo {
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+}#logo2 {
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+}
+#description {
+    margin-top: -15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+#output {
+    font-size: 20px;
+    line-height: 1.6;
+}
+#footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}#footer p{
+    font-size: 16px;
+    padding: 0 20px 20px;
+    text-align: center;
+}
+#reset {
+    flex-grow: .56666;
+}
+
 .input {
     margin: 0;
     padding: 13px;
@@ -112,8 +122,8 @@ a:active {
     cursor: pointer;
     font-weight: bold;
 }
-
 .row {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
