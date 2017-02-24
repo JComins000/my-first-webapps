@@ -8,7 +8,7 @@ html,body{
 }
 body{
     /*font-family: 'Roboto', sans-serif;*/
-    background-color: #fffbf0;
+    background-color: #fbfbf2;
     color:rgba(0,0,0,.9);
     font-size: 20px;
 }
@@ -89,15 +89,21 @@ input::-webkit-input-placeholder {
     margin-top: -15px;
     margin-bottom: 20px;
     font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(245, 99, 66);
 }
 #output {
     font-size: 20px;
     line-height: 1.6;
 }
 #footer {
-    width: 100%;
     position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
 }#footer p{
     font-size: 16px;
     padding: 0 20px 20px;
@@ -145,27 +151,27 @@ input::-webkit-input-placeholder {
 #toggle_melt {
     padding: 0;
     overflow: hidden;
+} #toggle_melt section {
+    margin: 0;
 } #toggle_melt section div {
     padding: 13px;
 }
 
 .light-tone {
-    background-color: rgb(239, 248, 181);
+    background-color: rgb(252, 246, 206);
 } .light-tone.shadow {
-    /*box-shadow: 0 2px 0 0 rgb(178, 206, 207);*/
-    box-shadow: 0 3px 0 0 rgb(240, 126, 100);
+    box-shadow: 0 3px 0 0 rgb(204, 130, 90);
 }
 .mid-tone {
-    background-color: rgb(254, 179, 148);
+    background-color: rgb(252, 236, 157);
 } .mid-tone:hover {
-    background-color: rgb(254, 166, 132);
+    background-color: rgb(230, 188, 99);
 }
 .mid-tone.shadow {
-    /*box-shadow: 0 3px 0 0 rgb(129, 181, 192);*/
-    box-shadow: 0 3px 0 0 rgb(220, 84, 75);
+    box-shadow: 0 3px 0 0 rgb(163, 97, 90);
 }
 .dark-tone, .switch.active, .btn:active {
-    background-color: rgb(255,113,66);
+    background-color: rgb(204, 130, 90);
 }
 .shadow.btn:active, .shadow.switch.active {
     box-shadow: none;
