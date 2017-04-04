@@ -1,15 +1,14 @@
 * {
-    font-family: "Open Sans", sans-serif;
+    font-family: Lato;
 }*:focus {
-    outline:none;
+    outline: none;
 }
-html,body{
-    height:100%;
+html,body {
+    height: 100%;
 }
-body{
-    /*font-family: 'Roboto', sans-serif;*/
-    background-color: #fbfbf2;
-    color:rgba(0,0,0,.9);
+body {
+    background-color: rgb(250,250,230);
+    color: rgba(0,0,0,.9);
     font-size: 20px;
 }
 p {
@@ -23,7 +22,7 @@ a,
 a:visited,
 a:active {
     text-decoration: none;
-    color: rgb(255,113,66);
+    color: rgb(245, 99, 66);
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -35,19 +34,18 @@ input::-webkit-input-placeholder {
 }
 
 #container {
-    max-width: 600px;
+    max-width: 650px;
+    min-width: 550px;
     margin: 0 auto;
     justify-content: space-between;
     z-index: 1;
     min-height: 100%;
 } #container::after{
   content: "";
-  background: url(../img/pidgey.png) no-repeat center center fixed;
-          -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-  opacity: 0.15;
+  background: url(../img/pidgey_trimmed.png) no-repeat center center fixed;
+  background-size: 100%;
+  image-rendering: pixelated;
+  opacity: 0.1;
   top: 0;
   left: 0;
   bottom: 0;
@@ -61,10 +59,124 @@ input::-webkit-input-placeholder {
     padding: 20px 20px 0px;
 }
 #content h1 {
-    margin-top: 0;
+    margin: 0px;
     text-align: center;
     position: relative;
 }
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}#footer p{
+    font-size: 16px;
+    padding: 0 20px 20px;
+    text-align: center;
+}
+
+.no-pad {
+    padding: 0;
+}
+.small-pad {
+    padding: 5px;
+}
+.pad {
+    padding: 13px;
+}
+.border {
+    margin: 0;
+    border: none;
+    border-radius: 5px;
+}
+.input {
+    text-align: left;
+    color: rgb(222, 65, 55)
+}
+.btn {
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Lato;
+} .btn, .input {
+    margin: 0 0 3px;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} .row button {
+    flex: 1;
+} .row-elem {
+    margin-top: -5px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 47.5%
+}
+.filler {
+    width: 5%;
+}
+.extra-margin {
+    margin-top: 15px;
+}
+.group {
+    margin-top: 20px;
+} .group > div {
+    margin-top: 3px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(163, 97, 90, .8);
+    background: rgba(250, 241, 181, .7);
+    padding: 15px;
+}
+
+.catch-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-end;
+    overflow: hidden;
+} .catch-btn div:first-child img {
+    width: auto;
+    height: 100%;
+    display: block;
+} .catch-btn img {
+    width: 50px;
+    height: 50px;
+} .catch-btn div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.light-tone {
+    background-color: rgb(252, 246, 206);
+} .light-tone.shadow {
+    box-shadow: 0 3px 0 rgb(204, 130, 90);
+}
+.mid-tone {
+    background-color: rgb(252, 236, 157);
+} .mid-tone.shadow {
+    box-shadow: 0 3px 0 0 rgb(163, 97, 90);
+}
+.dark-tone {
+    background-color: rgb(241, 214, 128);
+}
+.mid-tone:hover {
+    background-color: rgb(230, 188, 99);
+}
+.dark-tone:hover {
+    background-color: rgb(219, 162, 70);
+}
+.shadow.btn:active {
+    box-shadow: none;
+    transform: translateY(3px);
+}
+
 #title {
     position: relative;
     padding: 0 10px 0;
@@ -86,94 +198,22 @@ input::-webkit-input-placeholder {
     left: 100%;
 }
 #description {
-    margin-top: -15px;
-    margin-bottom: 20px;
     font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(245, 99, 66);
 }
-#output {
-    font-size: 20px;
-    line-height: 1.6;
+
+#melt {
+    display: flex
 }
-#footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}#footer p{
-    font-size: 16px;
-    padding: 0 20px 20px;
-    text-align: center;
+#melt img {
+    height: 1.5em;
+    width: 1.5em;
+} #melt div:first-child {
+    flex-grow: 1.5;
+} #melt div {
+    flex-grow: 1;
+} #melt span {
+    line-height: 1.5em;
 }
 #reset {
     flex-grow: .56666;
-}
-
-.input {
-    margin: 0;
-    padding: 13px;
-    border: none;
-    border-radius: 5px;
-    text-align: left;
-}
-.btn {
-    margin: 0;
-    padding: 13px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.row {
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-} .row button {
-    flex: 1;
-} .row div:not(.filler) {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    max-width: 47.5%
-}
-.filler {
-    width: 5%;
-}
-.switch {
-    font-size: 35px;
-    padding: 5px;
-}
-#toggle_melt {
-    padding: 0;
-    overflow: hidden;
-} #toggle_melt section {
-    margin: 0;
-} #toggle_melt section div {
-    padding: 13px;
-}
-
-.light-tone {
-    background-color: rgb(252, 246, 206);
-} .light-tone.shadow {
-    box-shadow: 0 3px 0 0 rgb(204, 130, 90);
-}
-.mid-tone {
-    background-color: rgb(252, 236, 157);
-} .mid-tone:hover {
-    background-color: rgb(230, 188, 99);
-}
-.mid-tone.shadow {
-    box-shadow: 0 3px 0 0 rgb(163, 97, 90);
-}
-.dark-tone, .switch.active, .btn:active {
-    background-color: rgb(204, 130, 90);
-}
-.shadow.btn:active, .shadow.switch.active {
-    box-shadow: none;
-    transform: translateY(3px);
 }

@@ -6,14 +6,6 @@ $(function() {
         $('input').trigger('input');
         $(this).children().first().children().toggleClass('dark-tone')
     });
- //    $('.switch').click( function() {  
-	//     $(this).addClass('active');
-	//     $('.switch').not(this).removeClass('active');
-	//     evolve_rate = parseInt($(this).text());
-	//     $('input').trigger('input');
-	// }).focus( function() {
-	// 	$(this).click();
-	// });
 	$('#catch').click( function() {
 		$('#candies').val( function() {
 			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;

@@ -4,6 +4,7 @@
 <title>Pidgey Journal</title>
 <!-- CRUNCH! I'll add it to the heap! -->
 <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
 <link rel='icon' type='image/png' href='img/pidgey_candy.png'>
 <link rel='stylesheet' type='text/css' href='css/journal.css'>
 <link rel='stylesheet' type='text/css' href='https://necolas.github.io/normalize.css/4.1.1/normalize.css'>
@@ -15,26 +16,54 @@
 <div id='container'>
 	<div id='content'>
 	    <h1><span id='title'><img src='img/pidgey_candy.png' id='logo'><span>Pidgey</span> Journal<img src='img/pidgey_candy.png' id='logo2'></span></h1>
-		<p id="description" class='light-tone'>Use this tool to keep a running tally of your Pidgey candy in Pokémon Go. Pidgey Journal will automatically show  stats for your candy.</p>
-		<div class='row'>
-			<div class='row-elem'>
-				<label>Candy</label>
-				<input type='number' id='candies' placeholder='0' class='input light-tone shadow' autofocus></input>
+		<div class='group'><div>
+			<p id="description">Pidgey Journal will automatically show  stats for your next lucky egg.<br>
+				Use this tool to keep a running tally of your Pidgey candy in Pokémon Go.</p>
+		</div></div>
+		<div class='group'>
+		<span>Current Inventory</span><div>
+			<div class='row'>
+				<div class='row-elem'>
+					<label>Candy</label>
+					<input type='number' id='candies' placeholder='0' class='input pad border light-tone shadow' autofocus></input>
+				</div>
+				<div class='filler'></div>
+				<div class='row-elem'>
+					<label>Pidgey</label>
+					<input type='number' id='pokemon' placeholder='0' class='input pad border light-tone shadow'></input>
+				</div>
 			</div>
-			<div class='filler'></div>
-			<div class='row-elem'>
-				<label>Pidgey</label>
-				<input type='number' id='pokemon' placeholder='0' class='input light-tone shadow'></input>
+		</div></div>
+		<div class='group'><span>Journal Buttons</span>
+		<div>
+			<div class='row'>
+				<button class='btn catch-btn no-pad border mid-tone shadow'>
+					<div id='pidgey' class='small-pad'><img src='img/pidgey.png'></div>
+					<div class='filler'></div>
+					<div id='pidgey-pinap' class='dark-tone'><img src='img/pinap.png'></div>
+				</button>
+				<div class='filler'></div>
+				<button class='btn catch-btn no-pad border mid-tone shadow'>
+					<div id='pidgeotto' class='small-pad'><img src='img/pidgeotto.png'></div>
+					<div class='filler'></div>
+					<div id='pidgeotto-pinap' class='dark-tone'><img src='img/pinap.png'></div>
+				</button>
+				<div class='filler'></div>
+				<button class='btn catch-btn no-pad border mid-tone shadow'>
+					<div id='pidgeot' class='small-pad'><img src='img/pidgeot.png'></div>
+					<div class='filler'></div>
+					<div id='pidgeot-pinap' class='dark-tone'><img src='img/pinap.png'></div>
+				</button>
 			</div>
-		</div>
-		<span>Journal Buttons</span>
-		<div class='row' style='font-size:16px;'>
-			<button class='btn mid-tone shadow' id='catch'>Caught 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
-			<div class='filler'></div>
-			<button class='btn mid-tone shadow' id='melt'>Transferred 1 <sup>P</sup><sub>K</sub><sup>M</sup><sub>N</sub></button>
-			<div class='filler'></div>
-			<button class='btn mid-tone shadow' id='reset'>Reset</button>
-		</div>
+			<div class='row extra-margin'>
+				<button class='btn pad border mid-tone shadow' id='melt'>
+					<div><span>Transfer</span></div>
+					<div><img src='img/pidgey_candy.png'></div>
+				</button>
+				<div class='filler'></div>
+				<button class='btn pad border mid-tone shadow' id='reset'>Reset</button>
+			</div>
+		</div></div>
 		<!-- <span>Number of candies needed to evolve</span>
 		<div class='row'>
 			<button class='btn mid-tone shadow switch active'>12</button>
@@ -56,8 +85,10 @@
 			  </div>
 			</section>
 		</button> -->
+		<div class='group'>
 		<span>Pidgey stats</span>
-		<div id='output'></div>
+			<div id='output'></div>
+		</div>
 	</div>
 	<div id='footer'>
 		<p>Created by <a href="https://github.com/JComins000">JComins000</a>.</p>
