@@ -1,22 +1,24 @@
-var do_melt = false;
-var evolve_rate = 12;
-$(function() {
-	$('#toggle_melt').mousedown( function () {
-        do_melt = !do_melt;
-        $('input').trigger('input');
-        $(this).children().first().children().toggleClass('dark-tone')
-    });
-	$('#catch').click( function() {
-		$('#candies').val( function() {
-			var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
-			return candies + 3;
-		});
+function catch_pkmn(candy, transfer = false) {
+	$('#candies').val( function() {
+		var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
+		return candies + candy;
+	});
+	if (!transfer) {
 		$('#pokemon').val( function() {
 			var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
 			return ++pokemon;
 		});
-		$('input').trigger('input');
-	});
+	}
+	$('input').trigger('input');
+}
+
+$(function() {
+	$('#pidgey').click( function(){catch_pkmn(3);} );
+	$('#pidgey-pinap').click( function(){catch_pkmn(6);} );
+	$('#pidgeotto').click( function(){catch_pkmn(6, true);} );
+	$('#pidgeotto-pinap').click( function(){catch_pkmn(11, true);} );
+	$('#pidgeot').click( function(){catch_pkmn(11, true);} );
+	$('#pidgeot-pinap').click( function(){catch_pkmn(21, true);} );
 	$('#melt').click( function() {
 		var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
 		var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;

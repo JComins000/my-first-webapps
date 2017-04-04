@@ -1,9 +1,10 @@
+/***  GLOBAL TAG SETTINGS  ***/
 * {
     font-family: Lato;
 }*:focus {
     outline: none;
 }
-html,body {
+html, body {
     height: 100%;
 }
 body {
@@ -33,30 +34,35 @@ input::-webkit-input-placeholder {
    opacity: .5;
 }
 
+/***  SETTING UP WORKSAPCE  ***/
 #container {
     max-width: 650px;
     min-width: 550px;
     margin: 0 auto;
-    justify-content: space-between;
     z-index: 1;
     min-height: 100%;
+    display: flex;
+    flex-flow: column;
 } #container::after{
-  content: "";
-  background: url(../img/pidgey_trimmed.png) no-repeat center center fixed;
-  background-size: 100%;
-  image-rendering: pixelated;
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;  
+    content: "";
+    background: url(../img/pidgey_trimmed.png)
+                no-repeat center center fixed;
+    background-size: 100%;
+    image-rendering: pixelated;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;  
 }
 #content {
     display: flex;
     flex-direction: column;
-    padding: 20px 20px 0px;
+    justify-content: flex-end;
+    flex:1;
+    padding: 0px 20px 0px;
 }
 #content h1 {
     margin: 0px;
@@ -64,24 +70,25 @@ input::-webkit-input-placeholder {
     position: relative;
 }
 
+#stretch {
+    flex: 1;
+}
 #footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}#footer p{
     font-size: 16px;
-    padding: 0 20px 20px;
+    padding: 20px 20px 0;
     text-align: center;
 }
+#end {
+    max-height: 20px;
+    flex: 1;
+}
 
+/***  HANDY CLASSES  ***/
 .no-pad {
     padding: 0;
-}
-.small-pad {
+} .small-pad {
     padding: 5px;
-}
-.pad {
+} .pad {
     padding: 13px;
 }
 .border {
@@ -102,6 +109,8 @@ input::-webkit-input-placeholder {
 } .btn, .input {
     margin: 0 0 3px;
 }
+
+/***  FLEX GEOMETRY  ***/
 .row {
     display: flex;
     flex-direction: row;
@@ -152,7 +161,7 @@ input::-webkit-input-placeholder {
     justify-content: space-around;
 }
 
-
+/***  HANDY COLOR CLASSES  ***/
 .light-tone {
     background-color: rgb(252, 246, 206);
 } .light-tone.shadow {
@@ -177,25 +186,12 @@ input::-webkit-input-placeholder {
     transform: translateY(3px);
 }
 
+/***  CSS BY ID  ***/
 #title {
-    position: relative;
-    padding: 0 10px 0;
-    font-family: "Fira Sans";
-}
-#title span {
+    color: rgb(125, 73, 16);
+} #title span {
     text-transform: uppercase;
     font-family: "Roboto Black", sans-serif;
-}
-#logo {
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    right: 100%;
-}#logo2 {
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 100%;
 }
 #description {
     font-size: 16px;

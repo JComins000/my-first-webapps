@@ -1,3 +1,5 @@
+evolve_rate = 12
+
 $(function() {
 	$('input').on('input', function (e) {
 		$('#output').html(function () {
@@ -27,9 +29,6 @@ $(function() {
 					perfect = true;
 				}
 				pokemon--;
-				if (do_melt) {
-					candies++;
-				}
 				candies++;
 				if (do_catch) {
 					if (evolutions > pokemon + catches || pokemon < 0) {
