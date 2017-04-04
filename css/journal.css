@@ -146,9 +146,9 @@ input::-webkit-input-placeholder {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    justify-content: flex-end;
+    justify-content: space-between;
     overflow: hidden;
-} .catch-btn div:first-child img {
+} .catch-btn div:nth-child(2) img {
     width: auto;
     height: 100%;
     display: block;
