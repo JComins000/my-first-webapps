@@ -1,45 +1,53 @@
-var evolve_rate = 12
-
 $(function() {
 	$('input').on('input', function (e) {
+		var cp_inv = get_inventory();
+		var candies = cp_inv[0];
+		var pidgey = cp_inv[1];
 		var catches = 0;
-		var evolutions = 0;
+		var pidgeotto = 0;
 		var melts = 0;
-		var candies = ($('#candies').val().length != 0) ? parseInt($('#candies').val(), 10) : 0;
-		var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
 
 		function catch_pokemon() {
-			console.log("cat", candies, pokemon);
+			console.log("cat", candies, pidgey);
 			catches++;
-			pokemon++;
+			pidgey++;
 			candies+=3;
 		}
 		function melt() {
-			console.log("mel", candies, pokemon);
+			console.log("mel", candies, pidgey);
 			melts++;
-			pokemon--;
+			pidgey--;
 			candies++;
 		}
 		function evolve() {
-			console.log("evo", candies, pokemon);
-			evolutions++;
+			console.log("evo", candies, pidgey);
+			pidgeotto++;
 			candies -= evolve_rate - 1;
-			pokemon--;
+			pidgey--;
 		}
 
 		// evolve anything we can
-		while (pokemon > 0) {
+		// don't transfer pideotto yet because it takes too long in game
+		// stop transferring early if we wont have enough candies
+		while (pidgey > 0 && pidgey + candies > evolve_rate) {
 			if (candies < evolve_rate) {
 				melt();
 			} else {
 				evolve();
 			}
 		}
-
 		$('#melts').html(melts);
-		$('#evolutions').html(evolutions);
+		$('#evolutions').html(pidgeotto);
+		console.log("pidgey, candies", pidgey, candies);
 
-		console.log("pokemon, candies", pokemon, candies);
+		// prepare for the next evolve cycle
+		// transfer all pidgeotto
+		candies += pidgeotto; 
+		console.log("pidgeotto candies", pidgeotto);
+
+
+
+
 		// // first spend the candies, catch pokemon if needed
 		// while (candies >= evolve_rate) {
 		// 	evolve();
@@ -73,7 +81,7 @@ $(function() {
 		// 	+" catch"
 		// 	+ (curr_catches == 1 ? "" : "es")
 		// 	+ "</b> "
-		// 	+ " will yield evolutions!</p>";
+		// 	+ " will yield pidgeotto!</p>";
 		// }
 		// return html;
 	});

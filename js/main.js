@@ -5,15 +5,15 @@ function get_inventory() {
 	var pokemon = ($('#pokemon').val().length != 0) ? parseInt($('#pokemon').val(), 10) : 0;
 	return [candies, pokemon];
 }
-function catch_pkmn(candy, transfer = false) {
+function catch_pkmn(candy, melt = false) {
 	var cp_inv = get_inventory();
 	$('#candies').val( function() {return cp_inv[0] + candy;});
-	if (!transfer) {
+	if (!melt) {
 		$('#pokemon').val( function() {return ++cp_inv[1];});
 	}
 	$('input').trigger('input');
 }
-function transfer_pkmn(modifier = 1) {
+function melt_pkmn(modifier = 1) {
 	var cp_inv = get_inventory();
 	if (pokemon < modifier) {
 		modifier = pokemon;
@@ -39,8 +39,8 @@ $(function() {
 	$('#pidgeotto-pinap').click( function(){catch_pkmn(11, true);} );
 	$('#pidgeot').click( function(){catch_pkmn(11, true);} );
 	$('#pidgeot-pinap').click( function(){catch_pkmn(21, true);} );
-	$('#melt').click( function() {transfer_pkmn();});
-	$('#melt-many').click( function() {transfer_pkmn(parseInt($('#melts').html()));});
+	$('#melt').click( function() {melt_pkmn();});
+	$('#melt-many').click( function() {melt_pkmn(parseInt($('#melts').html()));});
 	$('#evolve-many').click( function() {evolve_pkmn(parseInt($('#evolutions').html()));});
 	$('#reset').click( function() {
 		$('#candies').val('');
