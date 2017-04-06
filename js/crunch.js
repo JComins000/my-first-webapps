@@ -8,19 +8,16 @@ $(function() {
 		var melts = 0;
 
 		function catch_pokemon() {
-			console.log("cat", candies, pidgey);
 			catches++;
 			pidgey++;
 			candies+=3;
 		}
 		function melt() {
-			console.log("mel", candies, pidgey);
 			melts++;
 			pidgey--;
 			candies++;
 		}
 		function evolve() {
-			console.log("evo", candies, pidgey);
 			pidgeotto++;
 			candies -= evolve_rate - 1;
 			pidgey--;
@@ -38,52 +35,32 @@ $(function() {
 		}
 		$('#melts').html(melts);
 		$('#evolutions').html(pidgeotto);
-		console.log("pidgey, candies", pidgey, candies);
 
 		// prepare for the next evolve cycle
 		// transfer all pidgeotto
 		candies += pidgeotto; 
-		console.log("pidgeotto candies", pidgeotto);
+		// continue evolving, transfer pidgeotto as we go
+		while (pidgey > 0) {
+			if (candies < evolve_rate) {
+				melt();
+				candies++;
+			} else {
+				evolve();
+			}
+		}
 
-
-
-
-		// // first spend the candies, catch pokemon if needed
-		// while (candies >= evolve_rate) {
-		// 	evolve();
-		// }
-		// // transfer all pokemon and evolve if possible
-		// while (pokemon > 0) {
-		// 	melt();
-		// }
-		// console.log("determining remainder", candies, pokemon, perfect);
-		// // find out how many more pokemon we need for the next checkpoint
-		// var curr_catches = catches;
-		// if (!perfect) {
-		// 	while (candies < evolve_rate) {
-		// 		console.log(candies, evolve_rate);
-		// 		catch_pokemon();
-		// 		if (pokemon > 1) {
-		// 			melt();
-		// 		}
-		// 	}
-		// }
-
-		// var html = '';
-
-		// if (!perfect || curr_catches == 1) {
-		// 	html += "<p>Catch <b>"
-		// 	+ catches
-		// 	+ "</b> pokémon for your next evolution!</p>";
-		// } else {
-		// 	html += "<p>Your next <b>"
-		// 	+ curr_catches
-		// 	+" catch"
-		// 	+ (curr_catches == 1 ? "" : "es")
-		// 	+ "</b> "
-		// 	+ " will yield pidgeotto!</p>";
-		// }
-		// return html;
+		var html;
+		if (candies < 9) {
+			html = "Catch <b>"
+				+ Math.ceil((evolve_rate+1-candies)/4)
+				+ "</b> pidgey for another evolve.";
+		} else {
+			console.log(candies/(evolve_rate-3) << 0)
+			html = "Continue catching <b>"
+				+ (candies/(evolve_rate-3) << 0)
+				+ "</b> pidgey for evolutions."
+		}
+		$('#output').html(html);
 	});
 	$('input').trigger('input');
 });
