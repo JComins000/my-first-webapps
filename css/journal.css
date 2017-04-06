@@ -151,7 +151,6 @@ input::-webkit-input-placeholder {
 } .catch-btn div:nth-child(2) img {
     width: auto;
     height: 100%;
-    display: block;
 } .catch-btn img {
     width: 50px;
     height: 50px;
@@ -159,6 +158,20 @@ input::-webkit-input-placeholder {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.descriptor-box {
+    display: flex
+}
+.descriptor-box img {
+    height: 1.5em;
+    width: auto;
+} .descriptor-box span {
+    line-height: 1.5em;
+} .descriptor-box div:last-child {
+    flex-grow: 1;
+} .descriptor-box div {
+    flex-grow: 1.5;
 }
 
 /***  HANDY COLOR CLASSES  ***/
@@ -195,20 +208,6 @@ input::-webkit-input-placeholder {
 }
 #description {
     font-size: 16px;
-}
-
-#melt {
-    display: flex
-}
-#melt img {
-    height: 1.5em;
-    width: 1.5em;
-} #melt div:first-child {
-    flex-grow: 1.5;
-} #melt div {
-    flex-grow: 1;
-} #melt span {
-    line-height: 1.5em;
 }
 #reset {
     flex-grow: .56666;

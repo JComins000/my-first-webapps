@@ -20,8 +20,8 @@
 			<p id="description">Pidgey Journal will automatically show  stats for your next lucky egg.<br>
 				Use this tool to keep a running tally of your Pidgey candy in Pokémon Go.</p>
 		</div></div>
-		<div class='group'>
-		<span>Current Inventory</span><div>
+		<div class='group'><span>Current Inventory</span>
+		<div>
 			<div class='row'>
 				<div class='row-elem'>
 					<label>Candy</label>
@@ -56,7 +56,7 @@
 				</button>
 			</div>
 			<div class='row extra-margin'>
-				<button class='btn small-pad border mid-tone shadow' id='melt'>
+				<button class='btn small-pad border mid-tone shadow descriptor-box' id='melt'>
 					<div><span>Transfer</span></div>
 					<div><img src='img/pidgey_candy.png'></div>
 				</button>
@@ -64,9 +64,19 @@
 				<button class='btn small-pad border mid-tone shadow' id='reset'>Reset</button>
 			</div>
 		</div></div>
-		<div class='group'>
-		<span>Pidgey Stats</span>
-			<div id='output'></div>
+		<div class='group'><span>Pidgey Stats</span>
+			<div class='row'>
+				<button class='btn small-pad border mid-tone shadow descriptor-box' id='melt-many'>
+					<div><span>Transfer</span> <span id='melts'></span></div>
+					<div><img src='img/pidgey_candy.png'></div>
+				</button>
+				<div class='filler'></div>
+				<button class='btn small-pad border mid-tone shadow descriptor-box' id='evolve-many'>
+					<div><span>Evolve</span> <span id='evolutions'></span></div>
+					<div><img src='img/pidgey_trimmed.png'></div>
+				</button>
+			</div>
+			<div id='output'>testing</div>
 		</div>
 	</div>
 	<div id="stretch"></div>
