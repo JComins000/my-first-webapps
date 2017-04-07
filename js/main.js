@@ -24,7 +24,7 @@ function melt_pkmn(modifier = 1) {
 }
 function evolve_pkmn(modifier = 1) {
 	var cp_inv = get_inventory();
-	$('#candies').val( function(){v = cp_inv[0] - modifier*(evolve_rate-1);return v ? v : '';});
+	$('#candies').val( function(){v = cp_inv[0] - modifier*(evolve_rate-2);return v ? v : '';});
 	$('#pokemon').val( function(){v = cp_inv[1] - modifier;return v ? v : '';});
 	$('input').trigger('input');
 }
