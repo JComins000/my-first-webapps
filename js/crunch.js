@@ -43,21 +43,20 @@ $(function() {
 		while (pidgey > 0) {
 			if (candies < evolve_rate) {
 				melt();
-				candies++;
 			} else {
 				evolve();
+				candies++;
 			}
 		}
 
 		var html;
-		if (candies < 9) {
+		if (candies < 13) {
 			html = "Catch <b>"
 				+ Math.ceil((evolve_rate+1-candies)/4)
 				+ "</b> pidgey for another evolve.";
 		} else {
-			console.log(candies/(evolve_rate-3) << 0)
 			html = "Continue catching <b>"
-				+ (candies/(evolve_rate-3) << 0)
+				+ (candies/(evolve_rate-5) << 0)
 				+ "</b> pidgey for evolutions."
 		}
 		$('#output').html(html);

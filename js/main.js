@@ -15,8 +15,8 @@ function catch_pkmn(candy, melt = false) {
 }
 function melt_pkmn(modifier = 1) {
 	var cp_inv = get_inventory();
-	if (pokemon < modifier) {
-		modifier = pokemon;
+	if (cp_inv[1] < modifier) {
+		modifier = cp_inv[1];
 	}
 	$('#candies').val( function() {return cp_inv[0] + modifier;});
 	$('#pokemon').val( function() {v = cp_inv[1] - modifier; return v ? v : '';});
