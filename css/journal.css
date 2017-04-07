@@ -1,7 +1,7 @@
 /***  GLOBAL TAG SETTINGS  ***/
 * {
     font-family: Lato;
-}*:focus {
+} *:focus {
     outline: none;
 }
 html, body {
@@ -194,7 +194,12 @@ input::-webkit-input-placeholder {
 .dark-tone:hover {
     background-color: rgb(219, 162, 70);
 }
-.shadow.btn:active {
+.emphasis {
+    background-color: rgb(232, 96, 64);
+} .emphasis.shadow {
+    box-shadow: 0 3px 0 0 rgb(208, 48, 24);
+}
+.shadow.btn:active:enabled {
     box-shadow: none;
     transform: translateY(3px);
 }

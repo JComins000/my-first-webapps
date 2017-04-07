@@ -7,9 +7,9 @@ function get_inventory() {
 }
 function catch_pkmn(candy, melt = false) {
 	var cp_inv = get_inventory();
-	$('#candies').val( function() {return cp_inv[0] + candy;});
+	$('#candies').val( function(){return cp_inv[0] + candy;});
 	if (!melt) {
-		$('#pokemon').val( function() {return ++cp_inv[1];});
+		$('#pokemon').val( function(){return ++cp_inv[1];});
 	}
 	$('input').trigger('input');
 }
@@ -18,18 +18,15 @@ function melt_pkmn(modifier = 1) {
 	if (cp_inv[1] < modifier) {
 		modifier = cp_inv[1];
 	}
-	$('#candies').val( function() {return cp_inv[0] + modifier;});
-	$('#pokemon').val( function() {v = cp_inv[1] - modifier; return v ? v : '';});
+	$('#candies').val( function(){return cp_inv[0] + modifier;});
+	$('#pokemon').val( function(){v = cp_inv[1] - modifier; return v ? v : '';});
 	$('input').trigger('input');
 }
 function evolve_pkmn(modifier = 1) {
 	var cp_inv = get_inventory();
-	modifier = Math.min(cp_inv[0]/(evolve_rate-1)+1, modifier, cp_inv[1]);
-	if (modifier > 0) {
-		$('#candies').val( function() {v = cp_inv[0] - modifier*(evolve_rate-1);return v ? v : '';});
-		$('#pokemon').val( function() {v = cp_inv[1] - modifier;return v ? v : '';});
-		$('input').trigger('input');
-	}
+	$('#candies').val( function(){v = cp_inv[0] - modifier*(evolve_rate-1);return v ? v : '';});
+	$('#pokemon').val( function(){v = cp_inv[1] - modifier;return v ? v : '';});
+	$('input').trigger('input');
 }
 
 $(function() {
@@ -39,9 +36,9 @@ $(function() {
 	$('#pidgeotto-pinap').click( function(){catch_pkmn(11, true);} );
 	$('#pidgeot').click( function(){catch_pkmn(11, true);} );
 	$('#pidgeot-pinap').click( function(){catch_pkmn(21, true);} );
-	$('#melt').click( function() {melt_pkmn();});
-	$('#melt-many').click( function() {melt_pkmn(parseInt($('#melts').html()));});
-	$('#evolve-many').click( function() {evolve_pkmn(parseInt($('#evolutions').html()));});
+	$('#melt').click( function(){melt_pkmn();});
+	$('#melt-many').click( function(){melt_pkmn(parseInt($('#melts').html()));});
+	$('#evolve-many').click( function(){evolve_pkmn(parseInt($('#evolutions').html()));});
 	$('#reset').click( function() {
 		$('#candies').val('');
 		$('#pokemon').val('');

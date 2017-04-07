@@ -33,7 +33,6 @@ $(function() {
 				evolve();
 			}
 		}
-		$('#melts').html(melts);
 		$('#evolutions').html(pidgeotto);
 
 		// prepare for the next evolve cycle
@@ -48,6 +47,7 @@ $(function() {
 				candies++;
 			}
 		}
+		$('#melts').html(melts);
 
 		var html;
 		if (candies < 13) {
@@ -60,6 +60,7 @@ $(function() {
 				+ "</b> pidgey for evolutions."
 		}
 		$('#output').html(html);
+		$('#evolve-many').prop('disabled', parseInt($('#melts').html()) && parseInt($('#evolutions').html()));
 	});
 	$('input').trigger('input');
 });
